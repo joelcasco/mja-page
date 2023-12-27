@@ -138,23 +138,44 @@ height: 100vh;
     left: 0;
     width: 100%;
     height: 20px; /* Ajusta la altura de la sombra según sea necesario */
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.313) 0%, rgba(0, 0, 0, 0.8) 100%);
+    background: linear-gradient(to bottom, rgba(150, 149, 149, 0.799) 0%, rgba(0, 0, 0, 0.8) 100%);
     pointer-events: none; /* Asegura que la sombra no afecte la interacción con otros elementos */
     z-index: 1; /* Asegura que la sombra esté sobre la imagen de fondo */
     filter: blur(10px); /* Ajusta el valor de desenfoque según sea necesario */
 }
+
+/* BIENVENIDOS */
+.welcome{
+    width: 100%;
+  
+    padding: 80px 32px;
+    background-color:#530b6d ;
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    color: #fcfafa;
+}
+.welcome .title{
+    font-size: 33px;
+}
+.welcome .description{
+    font-size: 18px;
+}
+
  .title-white{
     display: flex;
     justify-content: start;
     align-items: center;
     font-size: 25px;
     padding-left: 15px;
+    background-color: #191919;
     /* border-bottom: #191919 1px solid; */
     
 }
 .title-white h2{
 
-    color: var(--background);
+    color: floralwhite;
     border-bottom: var(--background) 1px solid ;
     border-bottom: double;
 }
@@ -171,6 +192,7 @@ height: 100vh;
     gap: 20px;
     padding: 80px 32px;
     flex-wrap: wrap;
+    background-color: #191919;
 }
 .card{
     width: 320px;
@@ -240,7 +262,7 @@ height: 100vh;
 
 }
 .background-anexos {
-    background-color: var(--background);
+    background-color:#530b6d ;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -261,7 +283,7 @@ height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--background);
+    background-color: #530b6d;
     padding-top: 24px;
 }
 .title-seccion h2 {
@@ -465,6 +487,7 @@ footer .wave {
     .menu-icon {
         display: none;
     }
+   
 }
 
 @media (max-width: 600px) {
@@ -524,7 +547,9 @@ footer .wave {
             height: 0;
         }
     }
- 
+    .menu-footer{
+        display: none;
+    }
  
 
 
