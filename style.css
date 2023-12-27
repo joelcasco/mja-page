@@ -130,40 +130,47 @@ background-position: center;
 /* background-attachment: fixed; */
 background-size: cover;
 height: 100vh;
-
  }
- .text-principal{
-    display: flex;
-    place-items: center;
-    align-items: center;
-    text-align: center;
- }
- 
-
-
-.background-anexos {
-    background-color: var(--background);
+ .img-principal::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: start;
-    padding: 80px 32px;
+    height: 20px; /* Ajusta la altura de la sombra según sea necesario */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.313) 0%, rgba(0, 0, 0, 0.8) 100%);
+    pointer-events: none; /* Asegura que la sombra no afecte la interacción con otros elementos */
+    z-index: 1; /* Asegura que la sombra esté sobre la imagen de fondo */
+    filter: blur(10px); /* Ajusta el valor de desenfoque según sea necesario */
 }
- 
-.articles {
+ .title-white{
     display: flex;
-    flex-wrap: wrap;
-    margin: 0 auto;
-    justify-content: center;
-    max-width: 1020px;
-    gap: 24px;
+    justify-content: start;
+    align-items: center;
+    font-size: 25px;
+    padding-left: 15px;
+    /* border-bottom: #191919 1px solid; */
+    
 }
+.title-white h2{
+
+    color: var(--background);
+    border-bottom: var(--background) 1px solid ;
+    border-bottom: double;
+}
+
+
+/* ANEXOS */
+
 .nosotros{
     width: 100%;
-    height: 100vh;
+    /* height: 100vh; */
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 20px;
+    padding: 80px 32px;
+    flex-wrap: wrap;
 }
 .card{
     width: 320px;
@@ -172,6 +179,10 @@ height: 100vh;
     overflow: hidden;
     border: 8px solid #191919;
     position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 .card-img{
     width: 100%;
@@ -228,6 +239,24 @@ height: 100vh;
     cursor: pointer;
 
 }
+.background-anexos {
+    background-color: var(--background);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    padding: 80px 32px;
+}
+ 
+.articles {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    justify-content: center;
+    max-width: 1020px;
+    gap: 24px;
+}
+
 .title-seccion{
     display: flex;
     justify-content: center;
@@ -303,6 +332,135 @@ height: 100vh;
 .articles article:hover img {
     transform: scale(1.5); 
 }
+    /* FOOTER */
+    footer {
+        background-color: white;
+        position: relative;
+        width: 100%;
+
+        min-height: 100px;
+        padding: 20px 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+footer .social-icon, footer .menu{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:  10px 0;
+    flex-wrap: wrap;
+}
+
+footer .social-icon li,
+footer .menu-footer li{
+    list-style: none;
+}
+footer .social-icon li a{
+    font-size: 2em;
+    color: #261E5A;
+    margin: 0 10px;
+    display: inline-block;
+    transition: 0.5s;
+}
+footer .social-icon li a:hover{
+    transform: translateY(-10px);
+
+}
+footer .menu-footer li a{
+    font-size: 1.2em;
+    color: #0f0f0b;
+    margin: 0 10px;
+    display: inline-block;
+    text-decoration: none;
+}
+footer .menu-footer li a:hover{
+    opacity: 1;
+}
+footer p {
+    color: #F4BD50;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 1.1em;
+}
+footer .wave {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background:  url(assets/wave-white.png);
+    background-size: 1000px 100px;
+}
+
+.footer-wave {
+    z-index: 1000;
+}
+
+.footer-wave.opacity-1 {
+    opacity: 1;
+}
+
+.footer-wave.opacity-05 {
+    opacity: 0.5;
+}
+
+.footer-wave.opacity-02 {
+    opacity: 0.2;
+}
+
+.footer-wave.opacity-07 {
+    opacity: 0.7;
+}
+
+.animateWave {
+    bottom: 0;
+    animation: waveAnimation 4s linear infinite;
+}
+
+.animateWave-2 {
+    bottom: 10px;
+    animation: waveAnimation-2 4s linear infinite;
+}
+
+.animateWave-3 {
+    bottom: 15px;
+    animation: waveAnimation 3s linear infinite;
+}
+
+.animateWave-4 {
+    bottom: 20px;
+    animation: waveAnimation-2 3s linear infinite;
+}
+
+@keyframes waveAnimation {
+    0% {
+        background-position-x: 1000px;
+    }
+    100% {
+        background-position-x: 0px;
+    }
+}
+
+@keyframes waveAnimation-2 {
+    0% {
+        background-position-x: 1000px;
+    }
+    100% {
+        background-position-x: 0px;
+    }
+}
+@keyframes animateWave-2 {
+    0%{
+        background-position-x: 1000px;
+    }
+    100%{
+        background-position-x: 0px;
+    }
+}
+
 @media (min-width: 600px) {
     .menu-icon {
         display: none;
@@ -367,5 +525,7 @@ height: 100vh;
         }
     }
  
+ 
+
 
 }
