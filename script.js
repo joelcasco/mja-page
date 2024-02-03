@@ -18,7 +18,43 @@ const toggleMenu = () => {
     navigation.classList.remove("navigation--mobile--fadeout");
     navigation.classList.toggle("navigation--mobile");
   }
+  
 }
+// La función toggleMenu permanece igual
+
+// const toggleMenuAndChangeContent = (section) => {
+//   toggleMenu();  // Llama a tu función toggleMenu existente
+
+//   // Ahora, puedes agregar lógica para cambiar el contenido según el enlace clicado
+//   const contentElement = document.getElementById('content-placeholder-1');
+
+//   switch (section) {
+//       case 'nosotros':
+//           contentElement.innerHTML = `
+              
+
+//                 <h1>Historia</h1>
+
+
+//               <h1>Pastores</h1>
+
+
+//               <h1>Áreas</h1>
+  
+//           `;
+//           break;
+
+      
+
+//       // Agrega más casos según sea necesario
+
+//       default:
+//           // Si no se proporciona una sección válida, no cambies nada
+//           break;
+//   }
+// };
+
+    
 let nextDom = document.getElementById('next');
 let prevDom = document.getElementById('prev');
 let carouselDom = document.querySelector('.carousel');
@@ -63,7 +99,24 @@ function showSlider(type){
     nextDom.click();
   }, timeAutoNext)
 
-
 }
+
+  const productContainers = [...document.querySelectorAll('.product-container')];
+  const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
+  const preBtn = [...document.querySelectorAll('.pre-btn')];
+  
+  productContainers.forEach((item, i) => {
+      let containerDimensions = item.getBoundingClientRect();
+      let containerWidth = containerDimensions.width;
+  
+      nxtBtn[i].addEventListener('click', () => {
+          item.scrollLeft += containerWidth;
+      })
+  
+      preBtn[i].addEventListener('click', () => {
+          item.scrollLeft -= containerWidth;
+      })
+  })
+
 
 
