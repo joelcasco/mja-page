@@ -117,6 +117,33 @@ function showSlider(type){
           item.scrollLeft -= containerWidth;
       })
   })
+  let map;
+
+  function initMap() {
+    const mapOptions = {
+      center: { lat: -34.603722, lng: -58.381592 }, // Centro del mapa (latitud y longitud)
+      zoom: 12, // Nivel de zoom del mapa
+    };
+
+    // Crear el mapa y asignarlo al contenedor con el ID "map"
+    map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+    // Agregar marcadores para las localizaciones
+    const locations = [
+      { lat: -34.603722, lng: -58.381592, title: "Parada 1" },
+      { lat: -34.610856, lng: -58.405967, title: "Parada 2" },
+      { lat: -34.617633, lng: -58.362056, title: "Parada 3" },
+      // Agrega más localizaciones según sea necesario
+    ];
+
+    locations.forEach(location => {
+      new google.maps.Marker({
+        position: { lat: location.lat, lng: location.lng },
+        map,
+        title: location.title,
+      });
+    });
+  }
 
 
 
